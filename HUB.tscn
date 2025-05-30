@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://br028ptapyhm2"]
+
+[ext_resource type="Script" path="res://hub.gd" id="1_wlc2n"]
+
+[node name="Hub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wlc2n")
+
+[node name="Multiplayer" type="Button" parent="."]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 156.0
+offset_right = 615.0
+offset_bottom = 187.0
+text = "Multiplayer"
+
+[node name="Gerais" type="Button" parent="."]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 231.0
+offset_right = 602.0
+offset_bottom = 262.0
+text = "Gerais"
+
+[connection signal="pressed" from="Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="Gerais" to="." method="_on_gerais_pressed"]

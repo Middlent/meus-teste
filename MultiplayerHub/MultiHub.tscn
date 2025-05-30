@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://3mlaggwl1plk"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/multi_hub.gd" id="1_b3j70"]
+
+[node name="MultiHub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b3j70")
+
+[node name="Teste" type="Button" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 194.0
+offset_right = 610.0
+offset_bottom = 225.0
+text = "Teste"
+
+[node name="Pong" type="Button" parent="."]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 270.0
+offset_right = 613.0
+offset_bottom = 301.0
+text = "PONG"
+
+[connection signal="pressed" from="Teste" to="." method="_on_teste_pressed"]
+[connection signal="pressed" from="Pong" to="." method="_on_pong_pressed"]

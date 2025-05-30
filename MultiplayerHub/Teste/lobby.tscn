@@ -1,0 +1,125 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctcmyp2ot8ci0"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/Teste/lobby.gd" id="1_abo5m"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_abo5m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Screen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IP" type="LineEdit" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 169.0
+offset_right = 632.0
+offset_bottom = 200.0
+placeholder_text = "IP"
+
+[node name="PORT" type="LineEdit" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 169.0
+offset_right = 757.0
+offset_bottom = 200.0
+placeholder_text = "Port"
+
+[node name="Cliente" type="Button" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 391.0
+offset_right = 647.0
+offset_bottom = 470.0
+text = "Cliente"
+
+[node name="Server" type="Button" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 252.0
+offset_right = 647.0
+offset_bottom = 335.0
+text = "Server"
+
+[node name="servercheck" type="Button" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 57.0
+offset_right = 1033.0
+offset_bottom = 136.0
+text = "Server Check"
+
+[node name="Send" type="Button" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 857.0
+offset_top = 313.0
+offset_right = 1040.0
+offset_bottom = 392.0
+text = "Send
+"
+
+[node name="TextToSend" type="LineEdit" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 830.0
+offset_top = 247.0
+offset_right = 1078.0
+offset_bottom = 278.0
+
+[node name="Received Text" type="Label" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 427.0
+offset_right = 1074.0
+offset_bottom = 463.0
+
+[node name="Name Show" type="Label" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 90.0
+offset_right = 278.0
+offset_bottom = 126.0
+text = "NAME: "
+
+[node name="Name Text" type="LineEdit" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 232.0
+offset_right = 292.0
+offset_bottom = 263.0
+
+[node name="Change Name" type="Button" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 332.0
+offset_right = 250.0
+offset_bottom = 411.0
+text = "Change name
+"
+
+[node name="Enter Game" type="Button" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 543.0
+offset_right = 833.0
+offset_bottom = 622.0
+text = "Enter game"
+
+[connection signal="pressed" from="CanvasLayer/Screen/Cliente" to="." method="_on_cliente_pressed"]
+[connection signal="pressed" from="CanvasLayer/Screen/Server" to="." method="_on_server_pressed"]
+[connection signal="pressed" from="CanvasLayer/Screen/servercheck" to="." method="_on_servercheck_pressed"]
+[connection signal="pressed" from="CanvasLayer/Screen/Send" to="." method="_on_send_pressed"]
+[connection signal="pressed" from="CanvasLayer/Screen/Change Name" to="." method="_on_change_name_pressed"]
+[connection signal="pressed" from="CanvasLayer/Screen/Enter Game" to="." method="_on_enter_game_pressed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmsogvhlh04ou"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/multiplayer.gd" id="1_w7wwp"]
+[ext_resource type="PackedScene" uid="uid://3mlaggwl1plk" path="res://MultiplayerHub/MultiHub.tscn" id="2_lgqbx"]
+
+[node name="Multiplayer" type="Node2D"]
+script = ExtResource("1_w7wwp")
+
+[node name="MultiHub" parent="." instance=ExtResource("2_lgqbx")]
