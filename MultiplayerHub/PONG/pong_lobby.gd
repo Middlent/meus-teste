@@ -38,3 +38,21 @@ func _on_con_port_text_changed(new_text):
 	if new_text == "":
 		conn_port = false
 	_check_conn()
+
+
+func _on_host_pressed():
+	var peer = ENetMultiplayerPeer.new()
+	peer.create_server(int($HostPort.text), 2)
+	multiplayer.multiplayer_peer = peer
+	get_parent().chat_name = $Nome.text
+	get_parent().port = $HostPort.text
+	get_parent().change_screen("res://MultiplayerHub/PONG/PongHost.tscn")
+
+
+func _on_connect_pressed():
+	var peer = ENetMultiplayerPeer.new()
+	get_parent().chat_name = $Nome.text
+	multiplayer.connected_to_server.connect(get_parent().change_screen.bind("res://MultiplayerHub/PONG/PongHost.tscn"))
+	peer.create_client($ConIP.text, int($ConPort.text))
+	multiplayer.multiplayer_peer = peer
+	

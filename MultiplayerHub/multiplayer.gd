@@ -2,6 +2,7 @@ extends Node2D
 
 var users = {}
 var chat_name = ""
+var port = ""
 
 func _ready():
 	multiplayer.peer_connected.connect(on_peer_connection)

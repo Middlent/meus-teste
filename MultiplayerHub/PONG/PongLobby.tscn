@@ -88,6 +88,8 @@ offset_bottom = 552.0
 disabled = true
 text = "Search WAN"
 
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Connect" to="." method="_on_connect_pressed"]
 [connection signal="text_changed" from="Nome" to="." method="_on_nome_text_changed"]
 [connection signal="text_changed" from="HostPort" to="." method="_on_host_port_text_changed"]
 [connection signal="text_changed" from="ConPort" to="." method="_on_con_port_text_changed"]
