@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://bd0nh8ri4pil6"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/PONG/pong.gd" id="1_smlh7"]
+[ext_resource type="PackedScene" uid="uid://dam46ii1gr3at" path="res://MultiplayerHub/PONG/Player.tscn" id="2_1gygj"]
+[ext_resource type="PackedScene" uid="uid://dvoyf58w2e53u" path="res://MultiplayerHub/PONG/bola.tscn" id="3_66h6d"]
+[ext_resource type="Script" path="res://MultiplayerHub/PONG/goal.gd" id="3_in3s1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kugw0"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o34xv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ol3mq"]
+font_size = 64
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xeid5"]
+properties/0/path = NodePath("Vidas 1:text")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Vidas 2:text")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Pong" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_smlh7")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_1gygj")]
+position = Vector2(45, 340)
+
+[node name="Player2" parent="." groups=["Player"] instance=ExtResource("2_1gygj")]
+position = Vector2(1107, 340)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Up" type="CollisionShape2D" parent="Walls"]
+rotation = 1.57079
+shape = SubResource("WorldBoundaryShape2D_kugw0")
+
+[node name="Down" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1, 646)
+shape = SubResource("WorldBoundaryShape2D_o34xv")
+
+[node name="Goal 1" type="StaticBody2D" parent="." groups=["Goal"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("3_in3s1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal 1"]
+shape = SubResource("WorldBoundaryShape2D_kugw0")
+
+[node name="Goal 2" type="StaticBody2D" parent="." groups=["Goal"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("3_in3s1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal 2"]
+position = Vector2(1152, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_kugw0")
+
+[node name="Vidas 1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 49.0
+offset_right = 241.0
+offset_bottom = 137.0
+text = "3"
+label_settings = SubResource("LabelSettings_ol3mq")
+
+[node name="Vidas 2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 52.0
+offset_right = 912.0
+offset_bottom = 140.0
+text = "3"
+label_settings = SubResource("LabelSettings_ol3mq")
+
+[node name="Bola" parent="." instance=ExtResource("3_66h6d")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xeid5")
+
+[connection signal="goal" from="Goal 1" to="." method="_on_goal_1_goal"]
+[connection signal="goal" from="Goal 2" to="." method="_on_goal_2_goal"]

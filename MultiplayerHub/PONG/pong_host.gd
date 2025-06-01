@@ -57,5 +57,5 @@ func press_ready():
 		unready_peer.rpc()
 
 func press_start():
-	print("lets goooooooooooooooooooooooooooo")
+	get_parent().change_screen.rpc("res://MultiplayerHub/PONG/Pong.tscn")
 	

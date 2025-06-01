@@ -4,6 +4,8 @@ var users = {}
 var chat_name = ""
 var port = ""
 
+var data = {}
+
 func _ready():
 	multiplayer.peer_connected.connect(on_peer_connection)
 
