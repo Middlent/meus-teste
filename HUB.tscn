@@ -21,11 +21,19 @@ text = "Multiplayer"
 
 [node name="Gerais" type="Button" parent="."]
 layout_mode = 0
-offset_left = 544.0
-offset_top = 231.0
-offset_right = 602.0
-offset_bottom = 262.0
-text = "Gerais"
+offset_left = 482.0
+offset_top = 232.0
+offset_right = 670.0
+offset_bottom = 263.0
+text = "Gerais (NOT WORKING)"
+
+[node name="League" type="Button" parent="."]
+offset_left = 516.0
+offset_top = 362.0
+offset_right = 617.0
+offset_bottom = 393.0
+text = "League Solo"
 
 [connection signal="pressed" from="Multiplayer" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="Gerais" to="." method="_on_gerais_pressed"]
+[connection signal="pressed" from="League" to="." method="_on_league_pressed"]

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var base_speed = 10
-@export var increment = 0.2
+@export var base_speed = 300
+@export var increment = 6
 var SPEED = base_speed
 var angle = 30
 var start
@@ -11,7 +11,7 @@ func _ready():
 	reset()
 
 func _physics_process(delta):
-	var collision = move_and_collide(Vector2.from_angle(deg_to_rad(angle)) * SPEED)
+	var collision = move_and_collide(Vector2.from_angle(deg_to_rad(angle)) * SPEED * delta)
 	if collision:
 		angle = rad_to_deg((Vector2.from_angle(deg_to_rad(angle)) + 2 * collision.get_normal()).angle())
 		if collision.get_collider().is_in_group("Player"):

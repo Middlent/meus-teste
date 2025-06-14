@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://c73sh5f6d5bpg"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/League/league_lobby.gd" id="1_80k0j"]
+
+[node name="LeagueLobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_80k0j")
+
+[node name="Host" type="Button" parent="."]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 341.0
+offset_right = 426.0
+offset_bottom = 372.0
+disabled = true
+text = "Host"
+
+[node name="Connect" type="Button" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 517.0
+offset_right = 537.0
+offset_bottom = 548.0
+disabled = true
+text = "Conect"
+
+[node name="Nome" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 233.0
+offset_right = 647.0
+offset_bottom = 264.0
+placeholder_text = "Nome"
+
+[node name="HostPort" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 340.0
+offset_right = 312.0
+offset_bottom = 371.0
+placeholder_text = "Porta"
+
+[node name="ConPort" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 516.0
+offset_right = 423.0
+offset_bottom = 547.0
+placeholder_text = "Porta"
+
+[node name="ConIP" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 516.0
+offset_right = 231.0
+offset_bottom = 547.0
+placeholder_text = "IP"
+
+[node name="Local" type="Button" parent="."]
+layout_mode = 0
+offset_left = 878.0
+offset_top = 340.0
+offset_right = 981.0
+offset_bottom = 371.0
+disabled = true
+text = "Local"
+
+[node name="LAN" type="Button" parent="."]
+layout_mode = 0
+offset_left = 788.0
+offset_top = 522.0
+offset_right = 891.0
+offset_bottom = 553.0
+disabled = true
+text = "Search LAN"
+
+[node name="WAN" type="Button" parent="."]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 521.0
+offset_right = 1055.0
+offset_bottom = 552.0
+disabled = true
+text = "Search WAN"
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Connect" to="." method="_on_connect_pressed"]
+[connection signal="text_changed" from="Nome" to="." method="_on_nome_text_changed"]
+[connection signal="text_changed" from="HostPort" to="." method="_on_host_port_text_changed"]
+[connection signal="text_changed" from="ConPort" to="." method="_on_con_port_text_changed"]

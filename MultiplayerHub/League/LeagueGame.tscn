@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://brlan1k2xuo2b"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/League/league_game.gd" id="1_8dj8x"]
+[ext_resource type="PackedScene" uid="uid://cevd6qfwwptog" path="res://MultiplayerHub/League/LeaguePlayer.tscn" id="2_gi6wy"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xeid5"]
+properties/0/path = NodePath("Vidas 1:text")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Vidas 2:text")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="LeagueGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8dj8x")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xeid5")
+
+[node name="Player" parent="." instance=ExtResource("2_gi6wy")]
+position = Vector2(113, 293)
+
+[node name="Player2" parent="." instance=ExtResource("2_gi6wy")]
+position = Vector2(946, 154)
+team = 1
+
+[node name="Player3" parent="." instance=ExtResource("2_gi6wy")]
+position = Vector2(784, 537)

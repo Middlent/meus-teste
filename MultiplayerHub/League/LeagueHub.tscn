@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://ceh3j0xmnqdm5"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/League/league_hub.gd" id="1_6yg3r"]
+[ext_resource type="Texture2D" uid="uid://cj21a4xob5uj3" path="res://icon.svg" id="2_ikewy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5aktd"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_gdhh5"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_7hoq2"]
+font_size = 26
+
+[sub_resource type="Theme" id="Theme_og7px"]
+Button/font_sizes/font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_06xno"]
+font_size = 20
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kmwbg"]
+properties/0/path = NodePath("HostName:text")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("GuestName:text")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("GuestName:modulate")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("Ip:text")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Chat:text")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("TextureRect2:modulate")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+
+[node name="LeagueHub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6yg3r")
+
+[node name="HostName" type="Label" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 256.0
+offset_top = 423.0
+offset_right = 553.0
+offset_bottom = 468.0
+text = "HostName"
+label_settings = SubResource("LabelSettings_5aktd")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 163.0
+offset_right = 524.0
+offset_bottom = 404.0
+texture = ExtResource("2_ikewy")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.156863)
+layout_mode = 0
+offset_left = 684.0
+offset_top = 166.0
+offset_right = 925.0
+offset_bottom = 407.0
+texture = ExtResource("2_ikewy")
+
+[node name="GuestName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 667.0
+offset_top = 427.0
+offset_right = 953.0
+offset_bottom = 472.0
+text = "..."
+label_settings = SubResource("LabelSettings_gdhh5")
+horizontal_alignment = 1
+
+[node name="Ip" type="Label" parent="."]
+layout_mode = 0
+offset_left = 914.0
+offset_top = 17.0
+offset_right = 1135.0
+offset_bottom = 92.0
+text = "IP: 192.168.0.1
+Porta: 2222"
+label_settings = SubResource("LabelSettings_7hoq2")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 922.0
+offset_top = 558.0
+offset_right = 1113.0
+offset_bottom = 621.0
+theme = SubResource("Theme_og7px")
+disabled = true
+text = "Start"
+
+[node name="Chat" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 477.0
+offset_right = 912.0
+offset_bottom = 598.0
+label_settings = SubResource("LabelSettings_06xno")
+
+[node name="ChatText" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 607.0
+offset_right = 278.0
+offset_bottom = 638.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_kmwbg")
