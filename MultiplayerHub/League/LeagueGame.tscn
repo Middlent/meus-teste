@@ -31,4 +31,5 @@ position = Vector2(946, 154)
 team = 1
 
 [node name="Player3" parent="." instance=ExtResource("2_gi6wy")]
-position = Vector2(784, 537)
+position = Vector2(987, 250)
+team = 1
