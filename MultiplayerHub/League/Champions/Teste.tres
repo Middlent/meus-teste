@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Champion" load_steps=4 format=3 uid="uid://dxmaxku0qwqdw"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/League/Resources/champion.gd" id="1_efhwc"]
+[ext_resource type="Script" path="res://MultiplayerHub/League/Resources/stats.gd" id="2_e2jke"]
+
+[sub_resource type="Resource" id="Resource_s870d"]
+script = ExtResource("2_e2jke")
+hpBase = 100.0
+hpLevel = 50.0
+
+[resource]
+script = ExtResource("1_efhwc")
+stats = SubResource("Resource_s870d")

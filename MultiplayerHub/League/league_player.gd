@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var team = 0
-
+@export var champion: Champion
 
 @rpc("call_local")
 func check(id, player_team):
