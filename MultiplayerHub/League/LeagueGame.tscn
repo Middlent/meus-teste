@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://brlan1k2xuo2b"]
+[gd_scene load_steps=5 format=3 uid="uid://brlan1k2xuo2b"]
 
 [ext_resource type="Script" path="res://MultiplayerHub/League/league_game.gd" id="1_8dj8x"]
 [ext_resource type="PackedScene" uid="uid://cevd6qfwwptog" path="res://MultiplayerHub/League/LeaguePlayer.tscn" id="2_gi6wy"]
+[ext_resource type="Resource" uid="uid://dxmaxku0qwqdw" path="res://MultiplayerHub/League/Champions/Teste.tres" id="3_be2pn"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xeid5"]
 properties/0/path = NodePath("Vidas 1:text")
@@ -25,11 +26,14 @@ replication_config = SubResource("SceneReplicationConfig_xeid5")
 
 [node name="Player" parent="." instance=ExtResource("2_gi6wy")]
 position = Vector2(113, 293)
+champion = ExtResource("3_be2pn")
 
 [node name="Player2" parent="." instance=ExtResource("2_gi6wy")]
 position = Vector2(946, 154)
 team = 1
+champion = ExtResource("3_be2pn")
 
 [node name="Player3" parent="." instance=ExtResource("2_gi6wy")]
 position = Vector2(987, 250)
 team = 1
+champion = ExtResource("3_be2pn")

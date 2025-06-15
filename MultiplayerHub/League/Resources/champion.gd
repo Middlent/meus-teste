@@ -1,3 +1,3 @@
 class_name Champion extends Resource
 
-@export var stats: Stats 
+@export var stats: Stats
