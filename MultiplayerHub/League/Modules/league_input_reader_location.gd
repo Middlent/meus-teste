@@ -46,7 +46,8 @@ func _process(_delta):
 	elif get_parent().velocity.length() > 0:
 		%Animations.play_animation("Walking", 5)
 	else:
-		%Animations.stop_animation()
+		%Animations.stop_animation("Walking")
+		%Animations.stop_animation("AttackWalking")
 	
 	if targetEnemy == null:
 		if targetLocation.distance_to(get_parent().position) < deadzone:
