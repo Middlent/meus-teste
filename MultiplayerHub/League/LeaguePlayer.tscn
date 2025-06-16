@@ -225,6 +225,9 @@ speed = 1.0
 unique_name_in_owner = true
 script = ExtResource("5_k83q6")
 
+[node name="Cooldown" type="Timer" parent="Attack"]
+one_shot = true
+
 [node name="AttackReciever" type="Node2D" parent="."]
 script = ExtResource("7_gg8bw")
 

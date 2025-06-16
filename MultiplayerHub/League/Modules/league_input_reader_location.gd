@@ -19,24 +19,25 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 			var mouse_pos = get_global_mouse_position()
 			
-			var parameters = null
-			var collisions = []
-			if !event.shift_pressed:
-				parameters = PhysicsPointQueryParameters2D.new()
-				parameters.position = mouse_pos
-				collisions = get_world_2d().direct_space_state.intersect_point(parameters)
-			else:
-				parameters = PhysicsShapeQueryParameters2D.new()
-				parameters.transform = Transform2D(0,Vector2(14,14),0,mouse_pos)
-				parameters.shape = CircleShape2D.new()
-				collisions = get_world_2d().direct_space_state.intersect_shape(parameters)
-				collisions.sort_custom(func(a,b): return mouse_pos.distance_to(a.collider.position) < mouse_pos.distance_to(b.collider.position))
-				
-			for collision in collisions:
-				if collision.collider.is_in_group("Enemy"):
-					go_to(collision.collider.position)
-					targetEnemy = collision.collider
-					return
+			if %Attack.cooldown.is_stopped():
+				var parameters = null
+				var collisions = []
+				if !event.shift_pressed:
+					parameters = PhysicsPointQueryParameters2D.new()
+					parameters.position = mouse_pos
+					collisions = get_world_2d().direct_space_state.intersect_point(parameters)
+				else:
+					parameters = PhysicsShapeQueryParameters2D.new()
+					parameters.transform = Transform2D(0,Vector2(14,14),0,mouse_pos)
+					parameters.shape = CircleShape2D.new()
+					collisions = get_world_2d().direct_space_state.intersect_shape(parameters)
+					collisions.sort_custom(func(a,b): return mouse_pos.distance_to(a.collider.position) < mouse_pos.distance_to(b.collider.position))
+					
+				for collision in collisions:
+					if collision.collider.is_in_group("Enemy"):
+						go_to(collision.collider.position)
+						targetEnemy = collision.collider
+						return
 			
 			go_to(mouse_pos)
 

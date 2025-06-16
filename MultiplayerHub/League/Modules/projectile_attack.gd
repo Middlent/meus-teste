@@ -1,14 +1,15 @@
 extends Node2D
 
 var attack_data = {}
+@onready var cooldown = $Cooldown
 
 func attack(data):
 	attack_data = data
-	%Animations.play_animation("WindUp", 3, false)
+	%Animations.play_animation("WindUp", 5, false)
 
 func hit():
-	print("ue")
 	if attack_data.target.has_node("AttackReciever"):
+		cooldown.start(1 / get_parent().champion.stats.aSpeed)
 		var projectile = load("res://MultiplayerHub/League/Prefabs/Projectile.tscn").instantiate()
 		projectile.position = get_parent().position
 		projectile.attack_data = attack_data
