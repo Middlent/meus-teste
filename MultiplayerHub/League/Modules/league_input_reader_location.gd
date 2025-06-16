@@ -42,21 +42,29 @@ func _input(event):
 
 func _process(_delta):
 	if targetEnemy != null:
-		get_parent().rotation = 90
+		%Animations.play_animation("AttackWalking", 5)
+	elif get_parent().velocity.length() > 0:
+		%Animations.play_animation("Walking", 5)
 	else:
-		get_parent().rotation = 0
+		%Animations.stop_animation()
+	
 	if targetEnemy == null:
 		if targetLocation.distance_to(get_parent().position) < deadzone:
-			go_to(get_parent().position)
+			stop()
 			return
 	elif targetEnemy.position.distance_to(get_parent().position) < stats.range:
 		var attack_data = champion.attack_data
 		attack_data.target = targetEnemy
 		%Attack.attack(attack_data)
-		go_to(get_parent().position)
+		stop()
 		return
 	move.emit(get_parent().position.direction_to(targetLocation))
 
 func go_to(location: Vector2):
 	targetEnemy = null
 	targetLocation = location
+
+func stop():
+	go_to(get_parent().position)
+	get_parent().velocity = Vector2.ZERO
+	

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0jdmmweweu4e"]
+[gd_scene load_steps=18 format=3 uid="uid://c0jdmmweweu4e"]
 
 [ext_resource type="Script" path="res://MultiplayerHub/League/league_player.gd" id="1_lyn2g"]
 [ext_resource type="Texture2D" uid="uid://cj21a4xob5uj3" path="res://icon.svg" id="1_q0n85"]
 [ext_resource type="Script" path="res://MultiplayerHub/League/Modules/league_input_reader_location.gd" id="3_60qq2"]
 [ext_resource type="Script" path="res://Modulos/movement_top_down.gd" id="3_bdrse"]
 [ext_resource type="Script" path="res://MultiplayerHub/League/Modules/projectile_attack.gd" id="5_k83q6"]
+[ext_resource type="Script" path="res://MultiplayerHub/League/animations.gd" id="6_5lw37"]
 [ext_resource type="Script" path="res://MultiplayerHub/League/Modules/attack_reciever.gd" id="7_gg8bw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np7k6"]
@@ -28,6 +29,152 @@ corner_radius_bottom_left = 30
 ProgressBar/styles/background = SubResource("StyleBoxFlat_k6h8t")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_8jx82")
 
+[sub_resource type="Animation" id="Animation_xcsel"]
+resource_name = "Walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.00012207, 0), Vector2(0.00012207, 5.21429), Vector2(0.00012207, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.14286, 0.918527), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_itmbv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.00012207, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ruci7"]
+resource_name = "Walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.00012207, 0), Vector2(0.00012207, 5.21429), Vector2(0.00012207, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.14286, 0.918527), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.349066]
+}
+
+[sub_resource type="Animation" id="Animation_wqjqj"]
+resource_name = "WindUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.349066, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mb2ii"]
+resource_name = "WindUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.349066]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r7i47"]
+_data = {
+"AttackWalking": SubResource("Animation_ruci7"),
+"RESET": SubResource("Animation_itmbv"),
+"Walking": SubResource("Animation_xcsel"),
+"WindUp": SubResource("Animation_wqjqj"),
+"WrapUp": SubResource("Animation_mb2ii")
+}
+
 [node name="Personagem" type="CharacterBody2D"]
 position = Vector2(635, 288)
 scale = Vector2(0.56, 0.56)
@@ -36,9 +183,6 @@ script = ExtResource("1_lyn2g")
 [node name="Colisao" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_np7k6")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_q0n85")
 
 [node name="InputReader" type="Node2D" parent="."]
 script = ExtResource("3_60qq2")
@@ -63,5 +207,16 @@ offset_bottom = -82.0
 theme = SubResource("Theme_b6oks")
 value = 10.0
 show_percentage = false
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_r7i47")
+}
+script = ExtResource("6_5lw37")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0.00012207, 0)
+texture = ExtResource("1_q0n85")
 
 [connection signal="move" from="InputReader" to="Movement" method="move"]
