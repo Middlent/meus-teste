@@ -13,3 +13,13 @@ func check(id, player_team):
 		add_to_group("Ally")
 	else:
 		add_to_group("Enemy")
+
+func _init():
+	setup.call_deferred()
+	
+func setup():
+	champion.stats.changed.connect(on_stats_changed)
+
+func on_stats_changed():
+	$ProgressBar.max_value = champion.stats.hpBase + champion.stats.hpLevel * (champion.stats.level - 1)
+	$ProgressBar.value = champion.stats.hp
