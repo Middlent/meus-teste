@@ -12,7 +12,8 @@ asBase = 0.625
 asLevel = 0.0
 adBase = 60.0
 adLevel = 2.75
-rangeBase = 150.0
+rangeBase = 300.0
+projSpeed = 100.0
 
 [resource]
 resource_local_to_scene = true

@@ -8,7 +8,8 @@ var targetLocation : Vector2
 var targetEnemy : Node2D
 var movement := Vector2.ZERO
 
-@onready var stats = get_parent().champion.stats
+@onready var champion = get_parent().champion
+@onready var stats = champion.stats
 
 func _ready():
 	targetLocation = get_parent().position
@@ -49,7 +50,9 @@ func _process(_delta):
 			go_to(get_parent().position)
 			return
 	elif targetEnemy.position.distance_to(get_parent().position) < stats.range:
-		%Attack.attack(targetEnemy, stats.ad)
+		var attack_data = champion.attack_data
+		attack_data.target = targetEnemy
+		%Attack.attack(attack_data)
 		go_to(get_parent().position)
 		return
 	move.emit(get_parent().position.direction_to(targetLocation))

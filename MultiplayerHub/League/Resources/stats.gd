@@ -17,6 +17,8 @@ var ad: float
 @export var rangeBase: float
 var range: float
 
+@export var projSpeed: float
+
 func _init():
 	setup.call_deferred()
 	
