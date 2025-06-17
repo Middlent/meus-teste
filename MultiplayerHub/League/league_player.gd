@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var team = 0
-@export var champion: Champion
+@export var champion: ChampionResource
 
 @rpc("call_local")
 func check(id, player_team):
@@ -15,11 +15,20 @@ func check(id, player_team):
 		add_to_group("Enemy")
 
 
-func _init():
-	setup.call_deferred()
-	
+func _ready():
+	setup.rpc.call_deferred()
+
+@rpc("call_local")
 func setup():
 	champion.stats.changed.connect(on_stats_changed)
+	var skills = champion.skills.instantiate()
+	skills.name = "Skills"
+	
+	add_child(skills)
+	
+	var is_me = multiplayer.get_unique_id() == get_multiplayer_authority()
+	skills.set_process(is_me)
+	skills.set_process_input(is_me)
 
 func on_stats_changed():
 	$ProgressBar.max_value = champion.stats.hpBase + champion.stats.hpLevel * (champion.stats.level - 1)

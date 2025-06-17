@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvxhe3lnd56je"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/League/Champions/Teste/teste_skills.gd" id="1_dovox"]
+
+[node name="TesteSkills" type="Node2D"]
+script = ExtResource("1_dovox")

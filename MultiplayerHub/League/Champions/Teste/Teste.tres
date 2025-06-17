@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ChampionResource" load_steps=4 format=3 uid="uid://dxmaxku0qwqdw"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/League/Resources/champion.gd" id="2_mnr61"]
+[ext_resource type="PackedScene" uid="uid://cvxhe3lnd56je" path="res://MultiplayerHub/League/Champions/Teste/Teste_Skills.tscn" id="2_yvyxh"]
+[ext_resource type="Resource" uid="uid://dp8cq3h6nbls" path="res://MultiplayerHub/League/Champions/Teste/Teste_Stats.tres" id="3_x5rfs"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_mnr61")
+stats = ExtResource("3_x5rfs")
+skills = ExtResource("2_yvyxh")

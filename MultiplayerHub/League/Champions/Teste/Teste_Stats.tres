@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://dp8cq3h6nbls"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/League/Resources/stats.gd" id="1_rqktk"]
+
+[resource]
+script = ExtResource("1_rqktk")
+hpBase = 600.0
+hpLevel = 102.0
+asBase = 0.625
+asLevel = 0.0
+adBase = 60.0
+adLevel = 2.75
+rangeBase = 300.0
+projSpeed = 100.0
