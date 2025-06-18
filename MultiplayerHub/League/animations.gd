@@ -10,7 +10,6 @@ func play_animation(animation, speed = 1, reset = true, forced = false):
 			speed_scale = speed
 			if reset:
 				next_anim = animation
-				print(next_anim)
 				play("RESET")
 			else:
 				next_anim = "RESET"
