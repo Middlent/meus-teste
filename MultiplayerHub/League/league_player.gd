@@ -32,5 +32,7 @@ func setup():
 	skills.set_process_input(is_me)
 
 func on_stats_changed():
-	$ProgressBar.max_value = champion.stats.hpBase + champion.stats.hpLevel * (champion.stats.level - 1)
-	$ProgressBar.value = champion.stats.hp
+	$HealthBar.max_value = champion.stats.hpBase + champion.stats.hpLevel * (champion.stats.level - 1)
+	$HealthBar.value = champion.stats.hp
+	$ManaBar.max_value = champion.stats.manaBase + champion.stats.manaLevel * (champion.stats.level - 1)
+	$ManaBar.value = champion.stats.mana

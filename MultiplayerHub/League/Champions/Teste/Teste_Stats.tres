@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://MultiplayerHub/League/Resources/stats.gd" id="1_rqktk"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_rqktk")
 hpBase = 600.0
 hpLevel = 102.0

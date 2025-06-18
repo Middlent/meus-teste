@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0jdmmweweu4e"]
+[gd_scene load_steps=21 format=3 uid="uid://c0jdmmweweu4e"]
 
 [ext_resource type="Script" path="res://MultiplayerHub/League/league_player.gd" id="1_lyn2g"]
 [ext_resource type="Texture2D" uid="uid://cj21a4xob5uj3" path="res://icon.svg" id="1_q0n85"]
@@ -11,23 +11,29 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np7k6"]
 size = Vector2(127, 128)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6h8t"]
-bg_color = Color(0.237539, 0.237539, 0.237539, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qfaae"]
+color = Color(0.239216, 0.239216, 0.239216, 1)
+thickness = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jx82"]
-bg_color = Color(0.0969, 0.51, 0.17952, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6ykdt"]
+color = Color(0.239216, 0.827451, 0.239216, 1)
+thickness = 20
 
 [sub_resource type="Theme" id="Theme_b6oks"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_k6h8t")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_8jx82")
+ProgressBar/styles/background = SubResource("StyleBoxLine_qfaae")
+ProgressBar/styles/fill = SubResource("StyleBoxLine_6ykdt")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vyv6l"]
+color = Color(0.239216, 0.239216, 0.239216, 1)
+thickness = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nndmx"]
+color = Color(0.239216, 0.239216, 0.827451, 1)
+thickness = 10
+
+[sub_resource type="Theme" id="Theme_pnn5t"]
+ProgressBar/styles/background = SubResource("StyleBoxLine_vyv6l")
+ProgressBar/styles/fill = SubResource("StyleBoxLine_nndmx")
 
 [sub_resource type="Animation" id="Animation_ruci7"]
 resource_name = "Walking"
@@ -231,12 +237,21 @@ one_shot = true
 [node name="AttackReciever" type="Node2D" parent="."]
 script = ExtResource("7_gg8bw")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -66.0
 offset_top = -109.0
 offset_right = 66.0
-offset_bottom = -82.0
+offset_bottom = -80.0
 theme = SubResource("Theme_b6oks")
+value = 40.0
+show_percentage = false
+
+[node name="ManaBar" type="ProgressBar" parent="."]
+offset_left = -66.0
+offset_top = -82.0
+offset_right = 66.0
+offset_bottom = -67.0
+theme = SubResource("Theme_pnn5t")
 value = 10.0
 show_percentage = false
 
