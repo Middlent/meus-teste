@@ -20,6 +20,7 @@ func _ready():
 
 @rpc("call_local")
 func setup():
+	on_stats_changed()
 	champion.stats.changed.connect(on_stats_changed)
 	var skills = champion.skills.instantiate()
 	skills.name = "Skills"
