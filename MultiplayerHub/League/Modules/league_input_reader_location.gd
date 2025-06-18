@@ -15,6 +15,9 @@ func _ready():
 	targetLocation = get_parent().position
 
 func _input(event):
+	if get_parent().locked:
+		return
+		
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 			var mouse_pos = get_global_mouse_position()
@@ -42,6 +45,11 @@ func _input(event):
 			go_to(mouse_pos)
 
 func _process(_delta):
+	if get_parent().locked:
+		if get_parent().velocity != Vector2.ZERO:
+			stop()
+		return
+
 	if targetEnemy != null:
 		%Animations.play_animation("AttackWalking", 5)
 	elif get_parent().velocity.length() > 0:

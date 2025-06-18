@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var team = 0
 @export var champion: ChampionResource
+@export var locked = false
 
 @rpc("call_local")
 func check(id, player_team):
