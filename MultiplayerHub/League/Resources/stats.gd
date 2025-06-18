@@ -9,6 +9,13 @@ var hp: float :
 		hp = new_hp
 		emit_changed()
 
+@export var manaBase: float
+@export var manaLevel: float
+var mana: float :
+	set(new_mana):
+		mana = new_mana
+		emit_changed()
+
 @export var asBase: float
 @export var asLevel: float
 var aSpeed: float :
@@ -21,6 +28,11 @@ var aSpeed: float :
 var ad: float :
 	set(new_ad):
 		ad = new_ad
+		emit_changed()
+
+@export var ap: float :
+	set(new_ap):
+		ap = new_ap
 		emit_changed()
 
 @export var rangeBase: float
@@ -36,6 +48,7 @@ func _init():
 	
 func setup():
 	hp = hpBase + hpLevel * (level - 1)
+	mana = manaBase + manaLevel * (level - 1)
 	aSpeed = asBase + asLevel * (level - 1)
 	ad = adBase + adLevel * (level - 1)
 	range = rangeBase
