@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvxhe3lnd56je"]
+[gd_scene load_steps=3 format=3 uid="uid://cvxhe3lnd56je"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/League/Champions/Teste/teste_skills.gd" id="1_dovox"]
+[ext_resource type="Script" path="res://MultiplayerHub/League/Champions/skill_set.gd" id="1_vgui1"]
+[ext_resource type="Script" path="res://MultiplayerHub/League/Champions/Teste/q.gd" id="2_abny2"]
 
 [node name="TesteSkills" type="Node2D"]
-script = ExtResource("1_dovox")
+script = ExtResource("1_vgui1")
+
+[node name="Q" type="Node2D" parent="."]
+script = ExtResource("2_abny2")
+mana_cost = 30
