@@ -10,10 +10,18 @@ func check(id, player_team):
 	var is_me = multiplayer.get_unique_id() == get_multiplayer_authority()
 	$InputReader.set_process(is_me)
 	$InputReader.set_process_input(is_me)
+	var layers = 0
 	if player_team == get_parent().team:
+		layers += Globals.masks.ALLY_CHAMP_MASK
+		if is_me:
+			layers += Globals.masks.SELF_CHAMP_MASK
+		else:
+			layers += Globals.masks.OTHER_ALLY_CHAMP_MASK
 		add_to_group("Ally")
 	else:
+		layers += Globals.masks.ENEMY_CHAMP_MASK
 		add_to_group("Enemy")
+	collision_layer = layers
 
 
 func _ready():

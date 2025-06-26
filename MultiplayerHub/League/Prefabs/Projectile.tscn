@@ -21,6 +21,8 @@ texture = ExtResource("1_am13y")
 shape = SubResource("RectangleShape2D_s5vau")
 
 [node name="TargetDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 548
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetDetector"]
 shape = SubResource("RectangleShape2D_ld0si")

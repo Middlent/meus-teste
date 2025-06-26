@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxdscuy6lp0td"]
+
+[ext_resource type="Script" path="res://MultiplayerHub/League/Prefabs/skillshot.gd" id="1_4xmbe"]
+[ext_resource type="Texture2D" uid="uid://cj21a4xob5uj3" path="res://icon.svg" id="2_7j7yy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0cah"]
+
+[node name="Skillshot" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_4xmbe")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_7j7yy")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f0cah")

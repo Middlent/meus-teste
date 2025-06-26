@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://brlan1k2xuo2b"]
+[gd_scene load_steps=5 format=3 uid="uid://brlan1k2xuo2b"]
 
 [ext_resource type="Script" path="res://MultiplayerHub/League/league_game.gd" id="1_8dj8x"]
 [ext_resource type="PackedScene" uid="uid://c0jdmmweweu4e" path="res://MultiplayerHub/League/LeaguePlayer.tscn" id="2_gi6wy"]
-[ext_resource type="Script" path="res://MultiplayerHub/League/Resources/champion.gd" id="3_wj5bl"]
-[ext_resource type="PackedScene" uid="uid://cvxhe3lnd56je" path="res://MultiplayerHub/League/Champions/Teste/Teste_Skills.tscn" id="4_65af0"]
-[ext_resource type="Script" path="res://MultiplayerHub/League/Resources/stats.gd" id="5_l4xnh"]
+[ext_resource type="Resource" uid="uid://dxmaxku0qwqdw" path="res://MultiplayerHub/League/Champions/Teste/Teste.tres" id="6_qw0as"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xeid5"]
 properties/0/path = NodePath("Vidas 1:text")
@@ -13,69 +11,6 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath("Vidas 2:text")
 properties/1/spawn = true
 properties/1/replication_mode = 1
-
-[sub_resource type="Resource" id="Resource_3jxip"]
-resource_local_to_scene = true
-script = ExtResource("5_l4xnh")
-hpBase = 600.0
-hpLevel = 102.0
-manaBase = 600.0
-manaLevel = 102.0
-asBase = 0.625
-asLevel = 0.0
-adBase = 60.0
-adLevel = 2.75
-ap = 0.0
-rangeBase = 300.0
-projSpeed = 100.0
-
-[sub_resource type="Resource" id="Resource_84vic"]
-resource_local_to_scene = true
-script = ExtResource("3_wj5bl")
-stats = SubResource("Resource_3jxip")
-skills = ExtResource("4_65af0")
-
-[sub_resource type="Resource" id="Resource_3t1gf"]
-resource_local_to_scene = true
-script = ExtResource("5_l4xnh")
-hpBase = 600.0
-hpLevel = 102.0
-manaBase = 600.0
-manaLevel = 102.0
-asBase = 0.625
-asLevel = 0.0
-adBase = 60.0
-adLevel = 2.75
-ap = 0.0
-rangeBase = 300.0
-projSpeed = 100.0
-
-[sub_resource type="Resource" id="Resource_iyxlq"]
-resource_local_to_scene = true
-script = ExtResource("3_wj5bl")
-stats = SubResource("Resource_3t1gf")
-skills = ExtResource("4_65af0")
-
-[sub_resource type="Resource" id="Resource_dwu4b"]
-resource_local_to_scene = true
-script = ExtResource("5_l4xnh")
-hpBase = 600.0
-hpLevel = 102.0
-manaBase = 600.0
-manaLevel = 102.0
-asBase = 0.625
-asLevel = 0.0
-adBase = 60.0
-adLevel = 2.75
-ap = 0.0
-rangeBase = 300.0
-projSpeed = 100.0
-
-[sub_resource type="Resource" id="Resource_b1rnc"]
-resource_local_to_scene = true
-script = ExtResource("3_wj5bl")
-stats = SubResource("Resource_dwu4b")
-skills = ExtResource("4_65af0")
 
 [node name="LeagueGame" type="Control"]
 layout_mode = 3
@@ -91,14 +26,14 @@ replication_config = SubResource("SceneReplicationConfig_xeid5")
 
 [node name="Player" parent="." instance=ExtResource("2_gi6wy")]
 position = Vector2(113, 293)
-champion = SubResource("Resource_84vic")
+champion = ExtResource("6_qw0as")
 
 [node name="Player2" parent="." instance=ExtResource("2_gi6wy")]
 position = Vector2(946, 154)
 team = 1
-champion = SubResource("Resource_iyxlq")
+champion = ExtResource("6_qw0as")
 
 [node name="Player3" parent="." instance=ExtResource("2_gi6wy")]
 position = Vector2(987, 250)
 team = 1
-champion = SubResource("Resource_b1rnc")
+champion = ExtResource("6_qw0as")

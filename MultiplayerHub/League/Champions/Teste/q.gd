@@ -1,8 +1,24 @@
 extends Skill
 
 @onready var animationNode = get_node("../../Animations")
+@export var range = 100
+@export var speed = 10
+
+var shot
+var data = {}
 
 func cast():
 	animationNode.lock()
-	animationNode.post_animation_action_callable = print.bind("Pew")
+	data.direction = position.direction_to(get_local_mouse_position())
+	animationNode.post_animation_action_callable = skillshot
 	animationNode.play_animation("Q", 5, true, true)
+
+func skillshot():
+	shot = load("res://MultiplayerHub/League/Prefabs/skillshot.tscn").instantiate()
+	get_parent().get_parent().add_sibling(shot)
+	shot.position = global_position
+	data.range = range
+	data.speed = speed
+	data.size = Vector2(2, 2)
+	var masks = Globals.masks.ENEMY_CHAMP_MASK
+	shot.load_info(load("res://icon.svg"), data, masks)

@@ -5,6 +5,7 @@ var attack_data = {}
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if attack_data != {}:
+		print(attack_data.projectile_speed)
 		velocity = position.direction_to(attack_data.target.position) * attack_data.projectile_speed * 1000 * delta
 		move_and_slide()
 
