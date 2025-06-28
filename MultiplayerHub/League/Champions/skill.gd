@@ -1,23 +1,27 @@
 class_name Skill extends Node2D
 
+enum ReductionType {
+	FLAT = 0,
+	REMAINING_PERCENT = 1,
+	PERCENT = 2
+}
+
 @export var mana_cost = 0
 @export var unlockable = false
 @onready var champion = get_parent().get_parent().champion
 
 @export var cooldown = 1
-var cooldown_waiter: Timer
+var cooldown_remaining = 0
 
-func _ready():
-	cooldown_waiter = Timer.new()
-	cooldown_waiter.one_shot = true
-	add_child(cooldown_waiter)
+func _process(delta):
+	if cooldown_remaining != 0:
+		cooldown_remaining = max(0, cooldown_remaining - delta)
 
 func try_cast():
 	if unlockable or !get_parent().get_parent().locked:
-		if cooldown_waiter.is_stopped():
+		if cooldown_remaining == 0:
 			if champion.stats.mana > mana_cost:
-				cooldown_waiter.wait_time = cooldown
-				cooldown_waiter.start()
+				cooldown_remaining = cooldown
 				champion.stats.mana -= mana_cost
 				cast()
 			else:
@@ -35,3 +39,13 @@ func out_of_mana():
 
 func out_of_cooldown():
 	print("Out of cooldown")
+
+func reduce_cooldown(ammount, type):
+	match(type):
+		ReductionType.FLAT:
+			cooldown_remaining = max(0, cooldown_remaining - ammount)
+		ReductionType.REMAINING_PERCENT:
+			cooldown_remaining *= 1 - ammount
+		ReductionType.PERCENT:
+			cooldown_remaining = max(0, cooldown_remaining - cooldown * ammount)
+	
