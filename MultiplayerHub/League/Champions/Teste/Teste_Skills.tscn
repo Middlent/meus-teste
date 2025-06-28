@@ -11,3 +11,4 @@ script = ExtResource("2_abny2")
 range = 500
 speed = 1000
 mana_cost = 30
+cooldown = 3
