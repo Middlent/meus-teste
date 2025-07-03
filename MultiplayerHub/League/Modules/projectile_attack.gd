@@ -8,11 +8,12 @@ func attack(data):
 	%Animations.play_animation("WindUp", 5, false)
 
 func hit():
-	if attack_data.target.has_node("AttackReciever"):
+	if attack_data.target.has_node("Receiver"):
 		cooldown.start(1 / get_parent().champion.stats.aSpeed)
 		var projectile = load("res://MultiplayerHub/League/Prefabs/Projectile.tscn").instantiate()
 		projectile.position = get_parent().position
-		projectile.attack_data = attack_data
+		attack_data.mode = projectile.mode.TARGET
+		projectile.load_info(attack_data)
 		get_parent().add_sibling(projectile)
 	else:
 		print("Target ",attack_data.target," can't get attacked")

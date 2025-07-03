@@ -10,9 +10,9 @@ func attack(data):
 
 
 func hit():
-	if attack_data.target.has_node("AttackReciever"):
+	if attack_data.target.has_node("Receiver"):
 		cooldown.start(1 / get_parent().champion.stats.aSpeed)
-		var reciever = get_node(str(attack_data.target.get_path()) + "/AttackReciever")
-		reciever.recieve_attack(attack_data)
+		var reciever = get_node(str(attack_data.target.get_path()) + "/Receiver")
+		reciever.receive_attack(attack_data)
 	else:
 		print("Target ",attack_data.target," can't get attacked")
