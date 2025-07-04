@@ -22,7 +22,7 @@ func heal(target, dealer, ammount):
 	var targetSig = Globals.find_node("Signalizer", target)
 	
 	dealerSig.cure_dealt.emit(target, ammount)
-	target.cure_recieved.emit(dealer, ammount)
+	targetSig.cure_recieved.emit(dealer, ammount)
 
 
 func reduce_cooldown(player, skill, ammount, ReductionType):
