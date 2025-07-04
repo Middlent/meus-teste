@@ -8,22 +8,30 @@ extends Skill
 var shot
 var data = {}
 
+var mouse_pos
+
 func cast():
 	animationNode.lock()
-	data.direction = position.direction_to(get_local_mouse_position())
+	mouse_pos = get_global_mouse_position()
 	animationNode.post_animation_action_callable = skillshot
 	animationNode.play_animation("Q", 5, true, true)
 
 func skillshot():
-	shot = load("res://MultiplayerHub/League/Prefabs/skillshot.tscn").instantiate()
+	shot = load("res://MultiplayerHub/League/Prefabs/Projectile.tscn").instantiate()
 	get_parent().get_parent().add_sibling(shot)
-	shot.hit.connect(on_sucessful_hit)
+	
+	shot.hitted.connect(on_sucessful_hit)
 	shot.position = global_position
-	data.range = range
-	data.speed = speed
+	
+	data.projectile_speed = speed
 	data.size = Vector2(2, 2)
-	var masks = Globals.masks.ENEMY_CHAMP_MASK
-	shot.load_info(load("res://icon.svg"), data, masks)
+	
+	data.mode = shot.mode.STRAIGHT
+	data.direction = global_position.direction_to(mouse_pos)
+	data.range = range
+	data.mask = Globals.masks.ENEMY_CHAMP_MASK + Globals.masks.ENEMY_UNIT_MASK
+	
+	shot.load_info(data)
 
 func on_sucessful_hit(_data):
 	reduce_cooldown(cooldown_reduction, ReductionType.FLAT)

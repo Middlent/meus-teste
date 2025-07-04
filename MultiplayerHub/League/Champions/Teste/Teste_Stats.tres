@@ -15,4 +15,4 @@ adBase = 60.0
 adLevel = 2.75
 ap = 0.0
 rangeBase = 300.0
-projSpeed = 100.0
+projSpeed = 1000.0
