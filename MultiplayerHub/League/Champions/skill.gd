@@ -1,10 +1,5 @@
 class_name Skill extends Node2D
 
-enum ReductionType {
-	FLAT = 0,
-	REMAINING_PERCENT = 1,
-	PERCENT = 2
-}
 
 @export var mana_cost = 0
 @export var unlockable = false
@@ -39,13 +34,3 @@ func out_of_mana():
 
 func out_of_cooldown():
 	print("Out of cooldown")
-
-func reduce_cooldown(ammount, type):
-	match(type):
-		ReductionType.FLAT:
-			cooldown_remaining = max(0, cooldown_remaining - ammount)
-		ReductionType.REMAINING_PERCENT:
-			cooldown_remaining *= 1 - ammount
-		ReductionType.PERCENT:
-			cooldown_remaining = max(0, cooldown_remaining - cooldown * ammount)
-	

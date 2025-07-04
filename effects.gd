@@ -1,5 +1,11 @@
 extends Node
 
+enum SkillReductionType {
+	FLAT = 0,
+	REMAINING_PERCENT = 1,
+	PERCENT = 2
+}
+
 func damage(target, dealer, ammount):
 	target.champion.stats.hp = max(0, target.champion.stats.hp - ammount)
 	
@@ -17,3 +23,15 @@ func heal(target, dealer, ammount):
 	
 	dealerSig.cure_dealt.emit(target, ammount)
 	target.cure_recieved.emit(dealer, ammount)
+
+
+func reduce_cooldown(player, skill, ammount, ReductionType):
+	var skillNode = Globals.find_node("Skills/"+skill, player)
+	match(ReductionType):
+		SkillReductionType.FLAT:
+			skillNode.cooldown_remaining = max(0, skillNode.cooldown_remaining - ammount)
+		SkillReductionType.REMAINING_PERCENT:
+			skillNode.cooldown_remaining *= 1 - ammount
+		SkillReductionType.PERCENT:
+			skillNode.cooldown_remaining = max(0, skillNode.cooldown_remaining - skillNode.cooldown * ammount)
+	

@@ -24,7 +24,6 @@ func skillshot():
 	shot = load("res://MultiplayerHub/League/Prefabs/Projectile.tscn").instantiate()
 	get_parent().get_parent().add_sibling(shot)
 	
-	shot.hitted.connect(on_sucessful_hit)
 	shot.position = global_position
 	
 	data.projectile_speed = speed
@@ -36,12 +35,14 @@ func skillshot():
 	data.mask = Globals.masks.ENEMY_CHAMP_MASK + Globals.masks.ENEMY_UNIT_MASK
 	
 	var damage = 20 + percent_ad * player.champion.stats.ad + percent_ap * player.champion.stats.ap
-	data.effects = [Effects.damage.bind(player, damage)]
+	data.interactiveEffects = [
+		Effects.damage.bind(player, damage)
+		]
+	data.effects = [
+		Effects.reduce_cooldown.bind(player, "Q", cooldown_reduction, Effects.SkillReductionType.FLAT),
+		Effects.reduce_cooldown.bind(player, "W", cooldown_reduction, Effects.SkillReductionType.FLAT),
+		Effects.reduce_cooldown.bind(player, "E", cooldown_reduction, Effects.SkillReductionType.FLAT),
+		Effects.reduce_cooldown.bind(player, "R", cooldown_reduction, Effects.SkillReductionType.FLAT)
+		]
 	
 	shot.load_info(data)
-
-func on_sucessful_hit(_data):
-	reduce_cooldown(cooldown_reduction, ReductionType.FLAT)
-	get_node(str(get_parent().get_path()) + "/W").reduce_cooldown(cooldown_reduction, ReductionType.FLAT)
-	get_node(str(get_parent().get_path()) + "/E").reduce_cooldown(cooldown_reduction, ReductionType.FLAT)
-	get_node(str(get_parent().get_path()) + "/R").reduce_cooldown(cooldown_reduction, ReductionType.FLAT)
