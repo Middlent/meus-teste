@@ -52,3 +52,15 @@ func setup():
 	aSpeed = asBase + asLevel * (level - 1)
 	ad = adBase + adLevel * (level - 1)
 	range = rangeBase
+
+func getHpMax():
+	return hpBase + hpLevel * (level - 1)
+
+func getManaMax():
+	return manaBase + manaLevel * (level - 1)
+	
+func getASpeedMax():
+	return asBase + asLevel * (level - 1)
+	
+func getAdMax():
+	return adBase + adLevel * (level - 1)

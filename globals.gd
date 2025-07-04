@@ -20,3 +20,6 @@ enum masks{
 
 func change_screen(new_screen):
 	get_tree().change_scene_to_file(new_screen)
+
+func find_node(nodeName: String, parent: Node):
+	return get_node(str(parent.get_path()) + "/" + nodeName)

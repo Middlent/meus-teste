@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0jdmmweweu4e"]
+[gd_scene load_steps=23 format=3 uid="uid://c0jdmmweweu4e"]
 
 [ext_resource type="Script" path="res://MultiplayerHub/League/league_player.gd" id="1_lyn2g"]
 [ext_resource type="Texture2D" uid="uid://cj21a4xob5uj3" path="res://icon.svg" id="1_q0n85"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Modulos/movement_top_down.gd" id="3_bdrse"]
 [ext_resource type="Script" path="res://MultiplayerHub/League/Modules/projectile_attack.gd" id="5_k83q6"]
 [ext_resource type="Script" path="res://MultiplayerHub/League/animations.gd" id="6_5lw37"]
+[ext_resource type="Script" path="res://MultiplayerHub/League/Modules/signalizer.gd" id="6_egqo4"]
 [ext_resource type="Script" path="res://MultiplayerHub/League/Modules/receiver.gd" id="7_gg8bw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np7k6"]
@@ -283,6 +284,9 @@ one_shot = true
 
 [node name="Receiver" type="Node2D" parent="."]
 script = ExtResource("7_gg8bw")
+
+[node name="Signalizer" type="Node2D" parent="."]
+script = ExtResource("6_egqo4")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -66.0

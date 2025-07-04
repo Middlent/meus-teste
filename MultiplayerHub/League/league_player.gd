@@ -41,7 +41,7 @@ func setup():
 	skills.set_process_input(is_me)
 
 func on_stats_changed():
-	$HealthBar.max_value = champion.stats.hpBase + champion.stats.hpLevel * (champion.stats.level - 1)
+	$HealthBar.max_value = champion.stats.getHpMax()
 	$HealthBar.value = champion.stats.hp
-	$ManaBar.max_value = champion.stats.manaBase + champion.stats.manaLevel * (champion.stats.level - 1)
+	$ManaBar.max_value = champion.stats.getManaMax()
 	$ManaBar.value = champion.stats.mana

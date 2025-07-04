@@ -1,9 +1,13 @@
 extends Skill
 
 @onready var animationNode = get_node("../../Animations")
+@onready var player = get_node("../..")
+
 @export var range = 100
 @export var speed = 10
 @export var cooldown_reduction = 1.5
+@export var percent_ad = 1.3
+@export var percent_ap = 0.15
 
 var shot
 var data = {}
@@ -30,6 +34,9 @@ func skillshot():
 	data.direction = global_position.direction_to(mouse_pos)
 	data.range = range
 	data.mask = Globals.masks.ENEMY_CHAMP_MASK + Globals.masks.ENEMY_UNIT_MASK
+	
+	var damage = 20 + percent_ad * player.champion.stats.ad + percent_ap * player.champion.stats.ap
+	data.effects = [Effects.damage.bind(player, damage)]
 	
 	shot.load_info(data)
 
