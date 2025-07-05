@@ -36,13 +36,17 @@ func skillshot():
 	
 	var damage = 20 + percent_ad * player.champion.stats.ad + percent_ap * player.champion.stats.ap
 	data.interactiveEffects = [
-		Effects.damage.bind(player, damage)
+		Effects.damage.bind(player, damage),
+		func recieve_hit(enemy): Globals.find_node("Signalizer", enemy).hit_recieved.emit(enemy)
 		]
 	data.effects = [
 		Effects.reduce_cooldown.bind(player, "Q", cooldown_reduction, Effects.SkillReductionType.FLAT),
 		Effects.reduce_cooldown.bind(player, "W", cooldown_reduction, Effects.SkillReductionType.FLAT),
 		Effects.reduce_cooldown.bind(player, "E", cooldown_reduction, Effects.SkillReductionType.FLAT),
-		Effects.reduce_cooldown.bind(player, "R", cooldown_reduction, Effects.SkillReductionType.FLAT)
+		Effects.reduce_cooldown.bind(player, "R", cooldown_reduction, Effects.SkillReductionType.FLAT),
+		Globals.find_node("Signalizer", player).hit_dealt.emit.bind(player)
 		]
+	
+	Globals.find_node("Signalizer", player).attacked.emit()
 	
 	shot.load_info(data)

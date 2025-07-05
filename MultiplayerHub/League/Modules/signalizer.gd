@@ -9,4 +9,4 @@ signal cure_recieved(dealer, ammount)
 signal hit_dealt(target)
 signal hit_recieved(dealer)
 
-signal attack(target)
+signal attacked()

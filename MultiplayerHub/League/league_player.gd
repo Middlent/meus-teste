@@ -22,7 +22,7 @@ func check(id, player_team):
 		layers += Globals.masks.ENEMY_CHAMP_MASK
 		add_to_group("Enemy")
 	collision_layer = layers
-
+	
 
 func _ready():
 	setup.rpc.call_deferred()
