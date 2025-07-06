@@ -4,10 +4,13 @@ extends CharacterBody2D
 @export var champion: ChampionResource
 @export var locked = false
 
+var segundo = 0
+
 @rpc("call_local")
 func check(id, player_team):
 	set_multiplayer_authority(id)
 	var is_me = multiplayer.get_unique_id() == get_multiplayer_authority()
+	set_process(is_me)
 	$InputReader.set_process(is_me)
 	$InputReader.set_process_input(is_me)
 	var layers = 0
@@ -26,6 +29,13 @@ func check(id, player_team):
 
 func _ready():
 	setup.rpc.call_deferred()
+
+func _process(delta):
+	segundo += delta
+	if segundo >= 1:
+		segundo -= 1
+		Effects.heal(self, self, champion.stats.hpReg)
+		Effects.mana_heal(self, self, champion.stats.manaReg)
 
 @rpc("call_local")
 func setup():

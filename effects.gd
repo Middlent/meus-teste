@@ -24,6 +24,14 @@ func heal(target, dealer, ammount):
 	dealerSig.cure_dealt.emit(target, ammount)
 	targetSig.cure_recieved.emit(dealer, ammount)
 
+func mana_heal(target, dealer, ammount):
+	target.champion.stats.mana = min(target.champion.stats.mana + ammount, target.champion.stats.getManaMax())
+	
+	var dealerSig = Globals.find_node("Signalizer", dealer)
+	var targetSig = Globals.find_node("Signalizer", target)
+	
+	dealerSig.mana_dealt.emit(target, ammount)
+	targetSig.mana_recieved.emit(dealer, ammount)
 
 func reduce_cooldown(player, skill, ammount, ReductionType):
 	var skillNode = Globals.find_node("Skills/"+skill, player)

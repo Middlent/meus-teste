@@ -4,6 +4,7 @@ var level: int = 1
 
 @export var hpBase: float
 @export var hpLevel: float
+@export var hpReg: float
 var hp: float :
 	set(new_hp):
 		hp = new_hp
@@ -11,6 +12,7 @@ var hp: float :
 
 @export var manaBase: float
 @export var manaLevel: float
+@export var manaReg: float
 var mana: float :
 	set(new_mana):
 		mana = new_mana
