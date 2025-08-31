@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c1vw0daeveg8s"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/PONG/pong_lobby.gd" id="1_68egn"]
+[ext_resource type="Script" uid="uid://cm66pu571glpr" path="res://MultiplayerHub/PONG/pong_lobby.gd" id="1_68egn"]
 
 [node name="PongLobby" type="Control"]
 layout_mode = 3

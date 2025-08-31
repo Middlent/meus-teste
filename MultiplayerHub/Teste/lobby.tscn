@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ctcmyp2ot8ci0"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/Teste/lobby.gd" id="1_abo5m"]
+[ext_resource type="Script" uid="uid://dc2v8aselfnr1" path="res://MultiplayerHub/Teste/lobby.gd" id="1_abo5m"]
 
 [node name="Lobby" type="Control"]
 layout_mode = 3

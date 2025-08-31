@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://s3kt5bpv3pm"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/Teste/multi_game.gd" id="1_yb1vf"]
+[ext_resource type="Script" uid="uid://davqgvsxve6jf" path="res://MultiplayerHub/Teste/multi_game.gd" id="1_yb1vf"]
 
 [node name="MultiGame" type="Node2D"]
 script = ExtResource("1_yb1vf")

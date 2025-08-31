@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3mlaggwl1plk"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/multi_hub.gd" id="1_b3j70"]
+[ext_resource type="Script" uid="uid://b8jb2gju13w8h" path="res://MultiplayerHub/multi_hub.gd" id="1_b3j70"]
 
 [node name="MultiHub" type="Control"]
 layout_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c73sh5f6d5bpg"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/League/league_lobby.gd" id="1_80k0j"]
+[ext_resource type="Script" uid="uid://ci3ivuj0s08l6" path="res://MultiplayerHub/League/league_lobby.gd" id="1_80k0j"]
 
 [node name="LeagueLobby" type="Control"]
 layout_mode = 3

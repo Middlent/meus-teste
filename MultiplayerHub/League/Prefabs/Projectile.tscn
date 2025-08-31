@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgbvgitax5ick"]
 
 [ext_resource type="Texture2D" uid="uid://cj21a4xob5uj3" path="res://icon.svg" id="1_am13y"]
-[ext_resource type="Script" path="res://MultiplayerHub/League/Prefabs/projectile.gd" id="1_cen02"]
+[ext_resource type="Script" uid="uid://g80jwd3c62oi" path="res://MultiplayerHub/League/Prefabs/projectile.gd" id="1_cen02"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5vau"]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dam46ii1gr3at"]
 
-[ext_resource type="Script" path="res://Modulos/movement_vertical.gd" id="1_6nxdd"]
-[ext_resource type="Script" path="res://MultiplayerHub/PONG/player.gd" id="1_oc2li"]
-[ext_resource type="Script" path="res://Modulos/input_reader_vertical.gd" id="2_wwl6d"]
+[ext_resource type="Script" uid="uid://7p2s00nfsw63" path="res://Modulos/movement_vertical.gd" id="1_6nxdd"]
+[ext_resource type="Script" uid="uid://bqm3rgslafxtw" path="res://MultiplayerHub/PONG/player.gd" id="1_oc2li"]
+[ext_resource type="Script" uid="uid://dl1la2tym3e5s" path="res://Modulos/input_reader_vertical.gd" id="2_wwl6d"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ijhvg"]
 properties/0/path = NodePath(".:position")

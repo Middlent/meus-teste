@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://dp8cq3h6nbls"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/League/Resources/stats.gd" id="1_rqktk"]
+[ext_resource type="Script" uid="uid://dsqninsq67dqs" path="res://MultiplayerHub/League/Resources/stats.gd" id="1_rqktk"]
 
 [resource]
 resource_local_to_scene = true

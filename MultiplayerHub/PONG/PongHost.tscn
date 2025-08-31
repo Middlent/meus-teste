@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://qfafd8uwjl3o"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/PONG/pong_host.gd" id="1_bhnto"]
+[ext_resource type="Script" uid="uid://buvx5y6t0na3" path="res://MultiplayerHub/PONG/pong_host.gd" id="1_bhnto"]
 [ext_resource type="Texture2D" uid="uid://cj21a4xob5uj3" path="res://icon.svg" id="1_c0htp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5aktd"]

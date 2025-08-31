@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bd0nh8ri4pil6"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/PONG/pong.gd" id="1_smlh7"]
+[ext_resource type="Script" uid="uid://wobm6nu6v3m" path="res://MultiplayerHub/PONG/pong.gd" id="1_smlh7"]
 [ext_resource type="PackedScene" uid="uid://dam46ii1gr3at" path="res://MultiplayerHub/PONG/Player.tscn" id="2_1gygj"]
 [ext_resource type="PackedScene" uid="uid://dvoyf58w2e53u" path="res://MultiplayerHub/PONG/bola.tscn" id="3_66h6d"]
-[ext_resource type="Script" path="res://MultiplayerHub/PONG/goal.gd" id="3_in3s1"]
+[ext_resource type="Script" uid="uid://bpjvyb81g58v3" path="res://MultiplayerHub/PONG/goal.gd" id="3_in3s1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kugw0"]
 normal = Vector2(1, 0)

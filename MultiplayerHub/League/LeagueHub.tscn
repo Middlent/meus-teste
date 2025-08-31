@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ceh3j0xmnqdm5"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/League/league_hub.gd" id="1_6yg3r"]
+[ext_resource type="Script" uid="uid://xwrj5orhe001" path="res://MultiplayerHub/League/league_hub.gd" id="1_6yg3r"]
 [ext_resource type="Texture2D" uid="uid://cj21a4xob5uj3" path="res://icon.svg" id="2_ikewy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5aktd"]

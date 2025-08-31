@@ -1,13 +1,13 @@
 [gd_scene load_steps=23 format=3 uid="uid://c0jdmmweweu4e"]
 
-[ext_resource type="Script" path="res://MultiplayerHub/League/league_player.gd" id="1_lyn2g"]
+[ext_resource type="Script" uid="uid://cw3r3dydqn58c" path="res://MultiplayerHub/League/league_player.gd" id="1_lyn2g"]
 [ext_resource type="Texture2D" uid="uid://cj21a4xob5uj3" path="res://icon.svg" id="1_q0n85"]
-[ext_resource type="Script" path="res://MultiplayerHub/League/Modules/league_input_reader_location.gd" id="3_60qq2"]
-[ext_resource type="Script" path="res://Modulos/movement_top_down.gd" id="3_bdrse"]
-[ext_resource type="Script" path="res://MultiplayerHub/League/Modules/projectile_attack.gd" id="5_k83q6"]
-[ext_resource type="Script" path="res://MultiplayerHub/League/animations.gd" id="6_5lw37"]
-[ext_resource type="Script" path="res://MultiplayerHub/League/Modules/signalizer.gd" id="6_egqo4"]
-[ext_resource type="Script" path="res://MultiplayerHub/League/Modules/receiver.gd" id="7_gg8bw"]
+[ext_resource type="Script" uid="uid://c4xctkvukitrs" path="res://MultiplayerHub/League/Modules/league_input_reader_location.gd" id="3_60qq2"]
+[ext_resource type="Script" uid="uid://druut2if28byg" path="res://Modulos/movement_top_down.gd" id="3_bdrse"]
+[ext_resource type="Script" uid="uid://tegxjp6pprlv" path="res://MultiplayerHub/League/Modules/projectile_attack.gd" id="5_k83q6"]
+[ext_resource type="Script" uid="uid://cs1yj5pypw06e" path="res://MultiplayerHub/League/animations.gd" id="6_5lw37"]
+[ext_resource type="Script" uid="uid://bhpgnc2128ery" path="res://MultiplayerHub/League/Modules/signalizer.gd" id="6_egqo4"]
+[ext_resource type="Script" uid="uid://csdkfpx8c3pw7" path="res://MultiplayerHub/League/Modules/receiver.gd" id="7_gg8bw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np7k6"]
 size = Vector2(127, 128)
@@ -250,12 +250,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r7i47"]
 _data = {
-"AttackWalking": SubResource("Animation_ruci7"),
-"Q": SubResource("Animation_rpcme"),
-"RESET": SubResource("Animation_itmbv"),
-"Walking": SubResource("Animation_xcsel"),
-"WindUp": SubResource("Animation_wqjqj"),
-"WrapUp": SubResource("Animation_mb2ii")
+&"AttackWalking": SubResource("Animation_ruci7"),
+&"Q": SubResource("Animation_rpcme"),
+&"RESET": SubResource("Animation_itmbv"),
+&"Walking": SubResource("Animation_xcsel"),
+&"WindUp": SubResource("Animation_wqjqj"),
+&"WrapUp": SubResource("Animation_mb2ii")
 }
 
 [node name="Personagem" type="CharacterBody2D"]
